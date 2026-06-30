@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadSprint LLC — Turn Instagram Comments Into Booked Calls Using AI</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <link rel="canonical" href="https://leadsprint.org/">
+  <meta name="description" content="LeadSprint installs an AI-powered automation system for coaches that replies to Instagram comments, starts conversations, qualifies leads, and books discovery calls on autopilot.">
+  <meta name="keywords" content="Instagram automation, AI lead generation, AI coaches funnel, automated booking, Instagram comment CRM, Manychat alternative, LeadSprint">
+  <meta name="author" content="LeadSprint LLC">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://leadsprint.org/">
+  <meta property="og:title" content="LeadSprint — Turn Instagram Comments Into Booked Calls Using AI">
+  <meta property="og:description" content="Stop losing Instagram leads. Reply instantly, qualify prospects, and book calendar appointments 24/7 with custom conversational AI automation.">
+  <meta property="og:image" content="assets/logo.svg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://leadsprint.org/">
+  <meta property="twitter:title" content="LeadSprint — Turn Instagram Comments Into Booked Calls Using AI">
+  <meta property="twitter:description" content="Stop losing Instagram leads. Reply instantly, qualify prospects, and book calendar appointments 24/7 with custom conversational AI automation.">
+  <meta property="twitter:image" content="assets/logo.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- GSAP & ScrollTrigger via CDN for premium animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  
+  <!-- Main JavaScript Interface -->
+  <script src="js/main.js" defer></script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LeadSprint LLC",
+      "url": "https://leadsprint.org",
+      "logo": "https://leadsprint.org/assets/logo.svg",
+      "description": "LeadSprint helps coaches and creators automatically convert Instagram comments into qualified leads and booked calls using AI automation.",
+      "sameAs": [
+        "https://instagram.com/leadsprint.org"
+      ]
+    }
+  </script>
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #09090b;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  ">
+    <img src="assets/logo.svg" alt="LeadSprint Logo" style="
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      animation: pulse-glow 1.5s infinite ease-in-out;
+    ">
+    <div style="
+      width: 120px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    ">
+      <div style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 30%;
+        background: linear-gradient(90deg, #c2f82c, #16a34a);
+        animation: loading-bar 1.5s infinite ease-in-out;
+      "></div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes loading-bar {
+      0% { left: -30%; width: 30%; }
+      50% { width: 50%; }
+      100% { left: 100%; width: 30%; }
+    }
+  </style>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      loader.style.opacity = '0';
+      loader.style.visibility = 'hidden';
+      setTimeout(() => loader.remove(), 500);
+    });
+  </script>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-wrapper">
+        <img src="assets/logo.svg" alt="LeadSprint Logo" class="logo-svg">
+        <span>Lead<span class="green-text">Sprint</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Book Free Call</a>
+      </div>
+
+      <button class="menu-btn" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION OVERLAY -->
+  <div class="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem;">Book Free Call</a>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge">
+            <span class="dot"></span>
+            AI-POWERED LEAD ACQUISITION SYSTEM
+          </div>
+          <h1 class="hero-title gradient-text">
+            We Turn Your Instagram Comments Into Booked Calls. <span class="green-text">Automatically.</span>
+          </h1>
+          <p class="hero-desc">
+            Coaches lose up to 60% of their hot leads because they cannot reply to every Instagram comment instantly. LeadSprint deploys autonomous AI agents to respond to your commenters, qualify them, and book appointments directly on your calendar 24/7.
+          </p>
+          <div class="hero-ctas">
+            <a href="contact.html" class="btn btn-primary">Book Free Discovery Call</a>
+            <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="glow-spotlight"></div>
+          <div class="dashboard-wrapper">
+            <div class="dashboard-header">
+              <div class="header-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="header-title">LeadSprint Autopilot Dashboard</div>
+              <div class="header-dots">
+                <span style="opacity:0;"></span>
+              </div>
+            </div>
+            
+            <div class="dashboard-flow">
+              <!-- Step 1: Comment -->
+              <div class="flow-step" id="flow-comment">
+                <div class="step-icon flex-center">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                  </svg>
+                </div>
+                <div class="step-info">
+                  <h4 class="step-title">1. Instagram Comment</h4>
+                  <p class="step-meta">@sam_coach: "Commented 'GROWTH' on your reel"</p>
+                </div>
+                <span class="step-status">Captured</span>
+              </div>
+
+              <div class="flow-arrow-connector">
+                <div class="arrow-line"></div>
+              </div>
+
+              <!-- Step 2: DM -->
+              <div class="flow-step" id="flow-dm">
+                <div class="step-icon flex-center">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                  </svg>
+                </div>
+                <div class="step-info">
+                  <h4 class="step-title">2. AI DM Conversation</h4>
+                  <p class="step-meta">AI: "Hey Sam! Sending over the growth template..."</p>
+                </div>
+                <span class="step-status">Active Chat</span>
+              </div>
+
+              <div class="flow-arrow-connector">
+                <div class="arrow-line"></div>
+              </div>
+
+              <!-- Step 3: Qualified -->
+              <div class="flow-step" id="flow-qualify">
+                <div class="step-icon flex-center">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div class="step-info">
+                  <h4 class="step-title">3. Qualified Prospect</h4>
+                  <p class="step-meta">Budget: $2k/mo • Fit: Verified Course Creator</p>
+                </div>
+                <span class="step-status">Qualified</span>
+              </div>
+
+              <div class="flow-arrow-connector">
+                <div class="arrow-line"></div>
+              </div>
+
+              <!-- Step 4: Booked -->
+              <div class="flow-step" id="flow-booked">
+                <div class="step-icon flex-center">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="step-info">
+                  <h4 class="step-title">4. Call Booked (Calendly)</h4>
+                  <p class="step-meta">Tomorrow at 2:00 PM • Google Meet link sent</p>
+                </div>
+                <span class="step-status">Confirmed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="section" style="border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">The Friction</div>
+          <h2 class="gradient-text">You're Posting. People Are Commenting. But The Leads Are Disappearing.</h2>
+          <p>Coaches and creators burn advertising and production budgets building high-converting content, only to leak the value in the inbox.</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Card 1 -->
+          <div class="glass-card">
+            <div class="problem-icon-container">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="problem-card-title">Manual Replies Waste Time</h3>
+            <p>Spending 3-4 hours every single day typing standard direct messages manually. By the time you answer, the prospect is offline and cold.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-card">
+            <div class="problem-icon-container">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            <h3 class="problem-card-title">Forgotten Comments</h3>
+            <p>Instagram reels go viral, receiving 200+ comments overnight. The manual copy-paste links get flagged as spam or forgotten completely.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card">
+            <div class="problem-icon-container">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="problem-card-title">Thousands in Lost Revenue</h3>
+            <p>Unanswered comments translate directly into empty discovery calls and missed coaching opportunities. Leads wither in less than 5 minutes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (TIMELINE) -->
+    <section id="how-it-works" class="section" style="background: rgba(255, 255, 255, 0.01); border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">The Funnel</div>
+          <h2 class="gradient-text">Three Steps To Autopilot Bookings</h2>
+          <p>How LeadSprint converts passive social attention into qualified sales pipeline in seconds.</p>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+
+          <!-- Step 1 -->
+          <div class="timeline-item">
+            <div class="timeline-node">01</div>
+            <div class="timeline-content">
+              <div class="glass-card timeline-card">
+                <span class="timeline-step-badge">Phase 01: Capture</span>
+                <h3 class="timeline-step-title">Comment Trigger</h3>
+                <p>A prospect comments a specific keyword (e.g. "SCALE", "DIET", "SYSTEM") on your Instagram Post, Reel, or Live. Our AI instantly tracks it within 1.8 seconds.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-item">
+            <div class="timeline-node">02</div>
+            <div class="timeline-content">
+              <div class="glass-card timeline-card">
+                <span class="timeline-step-badge">Phase 02: Conversation</span>
+                <h3 class="timeline-step-title">Personalized AI Interaction</h3>
+                <p>Our custom-trained AI initiates a direct message. It delivers value (the free resource promised) and kicks off a natural, friendly conversation tailored specifically to their profile goals.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-item">
+            <div class="timeline-node">03</div>
+            <div class="timeline-content">
+              <div class="glass-card timeline-card">
+                <span class="timeline-step-badge">Phase 03: Conversion</span>
+                <h3 class="timeline-step-title">Automated Calendar Booking</h3>
+                <p>The AI qualifies the lead based on your custom criteria (audience size, income, bottlenecks). Qualified prospects are sent your Calendly link, and the call is secured instantly.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF & STATS -->
+    <section id="results" class="section" style="border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Performance</div>
+          <h2 class="gradient-text">Results That Move The Needle</h2>
+          <p>Data backed benchmarks from active coaching programs automated by LeadSprint.</p>
+        </div>
+
+        <div class="stats-grid">
+          <!-- Stat 1 -->
+          <div class="stat-item">
+            <div class="stat-number" data-target="212000" data-suffix="+">0</div>
+            <div class="stat-label">Content Audience Automated</div>
+          </div>
+          <!-- Stat 2 -->
+          <div class="stat-item">
+            <div class="stat-number" data-target="48" data-suffix=" Hours">0</div>
+            <div class="stat-label">Average Setup & Go-Live Time</div>
+          </div>
+          <!-- Stat 3 -->
+          <div class="stat-item">
+            <div class="stat-number" data-target="40" data-suffix="+">0</div>
+            <div class="stat-label">Average Weekly Qualified Bookings</div>
+          </div>
+        </div>
+
+        <div class="social-proof-note">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+          <span>Verified client case studies with video breakdowns and visual metrics will be published soon.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="section" style="background: rgba(255, 255, 255, 0.01); border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Pricing Plans</div>
+          <h2 class="gradient-text">Predictable Pricing for Hypergrowth</h2>
+          <p>Choose the automation scale that matches your volume. No contracts. Cancel anytime.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Growth Plan -->
+          <div class="glass-card pricing-card">
+            <div>
+              <div class="pricing-header">
+                <h3 class="pricing-tier">Growth</h3>
+                <div class="pricing-price">$1,500<span>/month</span></div>
+                <p class="pricing-desc">Perfect for growing brands looking to automate their basic DM funnel and capture inbound interest.</p>
+              </div>
+              <ul class="pricing-features">
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  1 Keyword-Trigger Funnel Setup
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Standard Conversational Scripting
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Integrates with standard Calendly
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Up to 2,500 active contacts/month
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Email support (48h response time)
+                </li>
+              </ul>
+            </div>
+            <a href="contact.html" class="btn btn-secondary">Start Free 5-Day Trial</a>
+          </div>
+
+          <!-- Growth Plus Plan -->
+          <div class="glass-card pricing-card popular">
+            <span class="popular-badge">Most Popular</span>
+            <div>
+              <div class="pricing-header">
+                <h3 class="pricing-tier" style="color: var(--primary-glow);">Growth Plus</h3>
+                <div class="pricing-price">$2,200<span>/month</span></div>
+                <p class="pricing-desc">The ultimate automated pipeline system. Tailored for established coaches and creator brands scaling rapidly.</p>
+              </div>
+              <ul class="pricing-features">
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Unlimited Comment Keyword Funnels
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Context-Aware AI Lead Qualification
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Direct CRM & GHL Integrations
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Up to 10,000 active contacts/month
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Priority Slack Channel & Support
+                </li>
+              </ul>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Start Free 5-Day Trial</a>
+          </div>
+
+          <!-- Annual Growth Partner Plan -->
+          <div class="glass-card pricing-card premium">
+            <span class="popular-badge" style="background: linear-gradient(135deg, #ffffff 0%, var(--primary-glow) 100%); color: #000000;">Best Value</span>
+            <div>
+              <div class="pricing-header">
+                <h3 class="pricing-tier" style="color: #ffffff;">Annual Growth Partner</h3>
+                <div class="pricing-price">$22,000<span>/year</span></div>
+                <p class="pricing-desc">The ultimate enterprise partnership. Complete custom implementation with continuous maintenance & optimization.</p>
+              </div>
+              <ul class="pricing-features">
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Everything in Growth Plus (12 Months)
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Priority Onboarding & Unlimited Tweaks
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Dedicated Success Manager & Audits
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Early Access Beta Features & Roadmap
+                </li>
+                <li>
+                  <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <strong>Includes 2 Months Free ($4,400 value)</strong>
+                </li>
+              </ul>
+            </div>
+            <a href="contact.html" class="btn btn-secondary" style="background: rgba(194, 248, 44, 0.05); border-color: var(--border-glow); color: var(--primary-glow);">Book Annual Strategy Call</a>
+          </div>
+        </div>
+        <p class="pricing-note">All trial plans include a full onboarding consultation and initial system testing.</p>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="section" style="border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Answers</div>
+          <h2 class="gradient-text">Frequently Asked Questions</h2>
+          <p>Everything you need to know about the LeadSprint AI infrastructure and integrations.</p>
+        </div>
+
+        <div class="faq-container">
+          <!-- Item 1 -->
+          <div class="faq-item">
+            <button class="faq-trigger">
+              <span class="faq-title">How long does the setup process take?</span>
+              <span class="faq-icon">
+                <svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                  <line x1="5" y1="12" x2="19" y2="12" class="horizontal-line"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-inner">
+                The standard deployment takes less than 48 hours. After our kickoff strategy call, our engineering team sets up the integrations, registers keywords, trains the AI agent on your program offers, and launches.
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-item">
+            <button class="faq-trigger">
+              <span class="faq-title">Do you require direct access to my Instagram password?</span>
+              <span class="faq-icon">
+                <svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                  <line x1="5" y1="12" x2="19" y2="12" class="horizontal-line"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-inner">
+                No. We never ask for your Instagram password. The AI automation runs securely via Meta's official API framework. Connection is established safely through Facebook Business Suite login, preserving your account security.
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-item">
+            <button class="faq-trigger">
+              <span class="faq-title">Is this system safe and compliant with Instagram's policies?</span>
+              <span class="faq-icon">
+                <svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                  <line x1="5" y1="12" x2="19" y2="12" class="horizontal-line"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-inner">
+                Absolutely. Because our infrastructure connects directly with the official Meta Graph API, it is 100% compliant. Unlike scrapers or gray-hat bots that cause account bans, LeadSprint's integrations are secure and officially supported.
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-item">
+            <button class="faq-trigger">
+              <span class="faq-title">What kind of results can I expect in the first month?</span>
+              <span class="faq-icon">
+                <svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                  <line x1="5" y1="12" x2="19" y2="12" class="horizontal-line"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-inner">
+                Most clients see a 30% to 50% increase in qualified call bookings within the first 14 days of go-live. By capturing and qualifying comments within seconds, the drop-off rate of prospects is virtually eliminated.
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="faq-item">
+            <button class="faq-trigger">
+              <span class="faq-title">What platforms does LeadSprint support?</span>
+              <span class="faq-icon">
+                <svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                  <line x1="5" y1="12" x2="19" y2="12" class="horizontal-line"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-inner">
+                Currently, we specialize deeply in Instagram Automation. However, we also build automated DM funnel systems for Facebook Pages, and custom lead triggers for YouTube and TikTok links routing to WhatsApp.
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="faq-item">
+            <button class="faq-trigger">
+              <span class="faq-title">How is LeadSprint different from traditional agencies?</span>
+              <span class="faq-icon">
+                <svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" class="vertical-line"></line>
+                  <line x1="5" y1="12" x2="19" y2="12" class="horizontal-line"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-inner">
+                Traditional agencies focus on media buying and charge heavy management retainers without building system assets. LeadSprint builds a custom AI conversational asset that you own. We don't just generate clicks; we install a software funnel that directly books calendars on autopilot.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-box">
+          <h2 class="cta-title gradient-text">Ready To Stop Losing Leads Every Day?</h2>
+          <p class="cta-desc">Start your free five-day trial. Let us build your automation assets, launch your first funnel keyword, and generate booked calls in less than 48 hours.</p>
+          <a href="contact.html" class="btn btn-primary btn-large">Book Free Discovery Call</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo-wrapper">
+            <img src="assets/logo.svg" alt="LeadSprint Logo" class="logo-svg">
+            <span>Lead<span class="green-text">Sprint</span></span>
+          </a>
+          <p class="footer-tagline">Turning Instagram Comments Into Booked Calls Using AI automation. Built for premium coaching, creator, and consulting brands.</p>
+        </div>
+
+        <div class="footer-links-grid">
+          <div>
+            <h4 class="footer-col-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#results">Results</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-title">Contact & Support</h4>
+            <ul class="footer-links">
+              <li><a href="mailto:hello@leadsprint.org">hello@leadsprint.org</a></li>
+              <li><a href="contact.html">Let's Talk</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 LeadSprint LLC. All rights reserved. Turning comments into revenue, automatically.</p>
+        <div class="social-icons">
+          <a href="https://instagram.com" class="social-link" aria-label="Instagram">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://twitter.com" class="social-link" aria-label="Twitter">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

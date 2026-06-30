@@ -1,0 +1,36 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="greenGrad" x1="20" y1="20" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C2F82C" />
+      <stop offset="100%" stop-color="#16A34A" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Headset Band -->
+  <path d="M 44 76 A 66 66 0 0 1 156 76" fill="none" stroke="url(#greenGrad)" stroke-width="12" stroke-linecap="round" />
+  
+  <!-- Left Earcup Connection & Earcup -->
+  <rect x="20" y="80" width="22" height="42" rx="11" fill="url(#greenGrad)" />
+  
+  <!-- Right Earcup Connection & Earcup -->
+  <rect x="158" y="80" width="22" height="42" rx="11" fill="url(#greenGrad)" />
+  
+  <!-- Outer Head Body (Green) -->
+  <circle cx="100" cy="100" r="50" fill="url(#greenGrad)" />
+  
+  <!-- Inner Face (White) -->
+  <circle cx="100" cy="100" r="38" fill="#FFFFFF" />
+  
+  <!-- Eyes (Green) -->
+  <circle cx="86" cy="94" r="5.5" fill="url(#greenGrad)" />
+  <circle cx="114" cy="94" r="5.5" fill="url(#greenGrad)" />
+  
+  <!-- Smile (Green) -->
+  <path d="M 91 106 A 9 9 0 0 0 109 106" fill="none" stroke="url(#greenGrad)" stroke-width="4.5" stroke-linecap="round" />
+  
+  <!-- Microphone Boom Arm -->
+  <path d="M 160 110 C 155 135, 138 145, 118 140" fill="none" stroke="url(#greenGrad)" stroke-width="6" stroke-linecap="round" />
+  
+  <!-- Microphone Tip -->
+  <circle cx="114" cy="140" r="8" fill="url(#greenGrad)" />
+</svg>
