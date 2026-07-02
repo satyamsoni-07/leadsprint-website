@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's Talk — LeadSprint LLC</title>
+  
+  <!-- SEO Tags -->
+  <meta name="description" content="Apply for a free lead automation consultation. Fill out our 60-second qualification form to unlock our booking calendar.">
+  <link rel="canonical" href="https://leadsprint.org/contact.html">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Calendly Widget Assets -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  
+  <script>
+    // ==========================================================================
+    // LEADSPRINT PRODUCTION BOOKING SYSTEM CONFIGURATION
+    // ==========================================================================
+    window.LEADSPRINT_CONFIG = {
+      // 1. Paste your real Calendly booking link below
+      CALENDLY_URL: 'https://calendly.com/rdilipshinde/30min', // Replace with your real link!
+      
+      // 2. Paste your form processor endpoint below (Formspree, EmailJS, Supabase Webhook, Airtable API, etc.)
+      // Leave empty to store submissions in local browser storage and unlock the calendar immediately.
+      FORM_ENDPOINT: ''
+    };
+  </script>
+  
+  <!-- Main Script -->
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-wrapper">
+        <img src="assets/logo.svg" alt="LeadSprint Logo" class="logo-svg">
+        <span>Lead<span class="green-text">Sprint</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#how-it-works">How It Works</a></li>
+          <li><a href="index.html#results">Results</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Book Free Call</a>
+      </div>
+
+      <button class="menu-btn" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION OVERLAY -->
+  <div class="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#how-it-works">How It Works</a></li>
+      <li><a href="index.html#results">Results</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem;">Book Free Call</a>
+  </div>
+
+  <main>
+    <section class="section contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          
+          <!-- LEFT SIDE: FORM -->
+          <div class="contact-info">
+            <div class="badge">
+              <span class="dot"></span> Qualification Funnel
+            </div>
+            <h1 class="contact-title gradient-text">Let's Talk</h1>
+            <p class="contact-desc">
+              Due to high demand, we only work with coaches and brands who meet our qualification thresholds. Fill out the application below to immediately unlock our scheduling calendar.
+            </p>
+
+            <div class="glass-card contact-card" style="margin-top: 2rem;">
+              <div id="form-alert" class="form-alert"></div>
+              
+              <form id="leadsprint-contact">
+                <div class="form-group">
+                  <label for="name">Full Name *</label>
+                  <input type="text" id="name" class="form-control" placeholder="Sarah Jenkins" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Work Email *</label>
+                  <input type="email" id="email" class="form-control" placeholder="sarah@coachingbrand.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="instagram">Instagram Handle *</label>
+                  <input type="text" id="instagram" class="form-control" placeholder="@sarah_coaches" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="followers">Approximate Follower Count *</label>
+                  <select id="followers" class="form-control" required style="background-color: #121218; border-color: rgba(255,255,255,0.08); color: #ffffff;">
+                    <option value="" disabled selected>Select range...</option>
+                    <option value="under-10k">Under 10K followers</option>
+                    <option value="10k-50k">10K – 50K followers</option>
+                    <option value="50k-100k">50K – 100K followers</option>
+                    <option value="100k-500k">100K – 500K followers</option>
+                    <option value="over-500k">Over 500K followers</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="challenge">What is your biggest bottleneck with client acquisition? *</label>
+                  <textarea id="challenge" class="form-control" placeholder="e.g. I get hundreds of comments but don't have the time to DM and qualify them all, so they slip away..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                  Qualify & Unlock Calendar
+                </button>
+              </form>
+            </div>
+                    <!-- RIGHT SIDE: REAL CALENDLY EMBED -->
+          <div class="calendar-wrapper" style="position: relative; height: 100%;">
+            <div class="badge" style="margin-bottom: 1.5rem;">
+              Step 2: Secured Booking
+            </div>
+            
+            <div id="booking-calendar" class="glass-card" style="padding: 1.5rem; border-color: var(--border-light); position: relative; transition: var(--transition-smooth); min-height: 650px; display: flex; flex-direction: column;">
+              
+              <!-- Lock Overlay -->
+              <div id="calendar-lock-overlay" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(9, 9, 11, 0.88);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                z-index: 10;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: var(--border-radius-md);
+                transition: var(--transition-smooth);
+                text-align: center;
+                padding: 2rem;
+              ">
+                <div style="
+                  width: 64px;
+                  height: 64px;
+                  border-radius: 50%;
+                  background: rgba(255, 255, 255, 0.02);
+                  border: 1px solid var(--border-light);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 1.5rem;
+                  color: var(--primary-glow);
+                  box-shadow: 0 0 15px rgba(194, 248, 44, 0.03);
+                ">
+                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                  </svg>
+                </div>
+                <h3 style="margin-bottom: 0.5rem; color: #ffffff;">Calendar Locked</h3>
+                <p style="font-size: 0.95rem; max-width: 280px; color: var(--text-muted);">Please fill out the qualification details on the left to verify eligibility and unlock timeslots.</p>
+              </div>
+
+              <!-- Calendly Inline Widget Embed Container -->
+              <div id="calendly-embed-container" style="width: 100%; height: 600px; display: none; border-radius: var(--border-radius-sm); overflow: hidden;">
+                <!-- Embedded Calendly Widget or Placeholder will load dynamically here -->
+              </div>
+              
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Premium Success Screen (Initially Hidden) -->
+        <div class="glass-card" id="booking-success-screen" style="display: none; max-width: 600px; margin: 3rem auto; padding: 4rem 3rem; text-align: center; border-color: var(--border-glow); box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 35px rgba(194, 248, 44, 0.1);">
+          <div class="success-icon-wrapper" style="
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(194, 248, 44, 0.1);
+            border: 2px solid var(--primary-glow);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-glow);
+            margin-bottom: 2rem;
+            box-shadow: 0 0 25px rgba(194, 248, 44, 0.2);
+            animation: button-pulse-glow 4s infinite ease-in-out;
+          ">
+            <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          
+          <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 1rem;">Session Confirmed!</h2>
+          <p style="font-size: 1.1rem; color: #ffffff; margin-bottom: 2.5rem; font-weight: 500;">
+            Your Strategy Session Has Been Confirmed.
+          </p>
+
+          <div class="success-details" style="margin: 2.5rem 0; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: var(--border-radius-md); text-align: left;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; font-size: 0.95rem;">
+              <span style="color: var(--text-muted);">Session Type:</span>
+              <span style="color: #ffffff; font-weight: 600;">1-on-1 LeadSprint Strategy</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; font-size: 0.95rem;">
+              <span style="color: var(--text-muted);">Date & Time:</span>
+              <span style="color: var(--primary-glow); font-weight: 600;" id="success-date-time">Confirmed via Email</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.95rem;">
+              <span style="color: var(--text-muted);">Timezone:</span>
+              <span style="color: #ffffff; font-weight: 600;" id="success-timezone">Synced to Calendar</span>
+            </div>
+          </div>
+
+          <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto;">
+            A calendar invitation containing your custom video conference link (Google Meet/Zoom) has been sent directly to your inbox.
+          </p>
+
+          <a href="index.html" class="btn btn-secondary" style="width: 100%;">Return to Homepage</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p class="copyright">&copy; 2026 LeadSprint LLC. All rights reserved.</p>
+        <div class="social-icons">
+          <a href="index.html" class="logo-wrapper" style="font-size: 1.1rem; gap: 0.5rem;">
+            <img src="assets/logo.svg" alt="LeadSprint Logo" class="logo-svg" style="width:24px; height:24px;">
+            <span>LeadSprint</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script to hook up custom scheduler actions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Listen for message events from embedded Calendly iframe
+      window.addEventListener('message', (e) => {
+        if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+          handleBookingSuccess(e.data.payload);
+        }
+      });
+      
+      // Define global unlock hook that is called by main.js upon form validation
+      window.unlockCalendlyCalendar = function(lead) {
+        const lockOverlay = document.getElementById('calendar-lock-overlay');
+        const bookingCard = document.getElementById('booking-calendar');
+        const embedContainer = document.getElementById('calendly-embed-container');
+        
+        // 1. Reveal container
+        if (embedContainer) {
+          embedContainer.style.display = 'block';
+          
+          // Show placeholder warning if CALENDLY_URL is not set yet
+          if (!window.LEADSPRINT_CONFIG || !window.LEADSPRINT_CONFIG.CALENDLY_URL || window.LEADSPRINT_CONFIG.CALENDLY_URL.includes('YOUR_CALENDLY_LINK')) {
+            embedContainer.innerHTML = `
+              <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 2rem; min-height: 500px;">
+                <div style="width: 54px; height: 54px; border-radius: 50%; background: rgba(194, 248, 44, 0.1); border: 1px solid var(--border-glow); display: flex; align-items: center; justify-content: center; color: var(--primary-glow); margin-bottom: 1.5rem;">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                  </svg>
+                </div>
+                <h4 style="margin-bottom: 0.5rem; color: #ffffff;">Connect Your Calendly Account</h4>
+                <p style="font-size: 0.88rem; color: var(--text-muted); max-width: 290px; margin-bottom: 2rem;">
+                  To view live strategy sessions, paste your calendar profile link inside the configuration block in <code>contact.html</code>.
+                </p>
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); padding: 0.75rem 1rem; border-radius: var(--border-radius-sm); font-family: monospace; font-size: 0.8rem; text-align: left; width: 100%; max-width: 380px;">
+                  LEADSPRINT_CONFIG = {<br>
+                  &nbsp;&nbsp;CALENDLY_URL: 'https://calendly.com/your-profile'<br>
+                  };
+                </div>
+              </div>
+            `;
+          } else {
+            embedContainer.innerHTML = ''; // Clear container
+            
+            // Check if Calendly SDK is loaded
+            if (typeof Calendly !== 'undefined') {
+              Calendly.initInlineWidget({
+                url: window.LEADSPRINT_CONFIG.CALENDLY_URL,
+                parentElement: embedContainer,
+                prefill: {
+                  name: lead.name,
+                  email: lead.email
+                },
+                utm: {
+                  utmCampaign: "LeadSprintWebsite"
+                }
+              });
+            } else {
+              // Safe fallback iframe embedding if script loaded async after
+              embedContainer.innerHTML = `<iframe src="${window.LEADSPRINT_CONFIG.CALENDLY_URL}?name=${encodeURIComponent(lead.name)}&email=${encodeURIComponent(lead.email)}" style="width:100%; height:100%; border:0;"></iframe>`;
+            }
+          }
+        }
+        
+        // 2. Remove Lock Overlay smoothly
+        if (lockOverlay) {
+          lockOverlay.style.opacity = '0';
+          lockOverlay.style.visibility = 'hidden';
+          setTimeout(() => lockOverlay.remove(), 400);
+        }
+        
+        // 3. Highlight calendar card border
+        if (bookingCard) {
+          bookingCard.style.borderColor = 'var(--primary-glow)';
+          bookingCard.style.boxShadow = '0 0 25px rgba(194, 248, 44, 0.12)';
+        }
+        
+        // 4. Scroll smoothly to calendar viewport
+        setTimeout(() => {
+          bookingCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      };
+
+      function handleBookingSuccess(payload) {
+        const contactGrid = document.getElementById('main-contact-grid');
+        const successScreen = document.getElementById('booking-success-screen');
+        
+        // Hide form & calendar grid
+        if (contactGrid) {
+          contactGrid.style.display = 'none';
+        }
+        
+        // Populate dates if returned, otherwise show confirmed fallback
+        const successTime = document.getElementById('success-date-time');
+        const successTz = document.getElementById('success-timezone');
+        
+        successTime.innerText = "Scheduled & Confirmed";
+        successTz.innerText = Intl.DateTimeFormat().resolvedOptions().timeZone || "Local Time";
+        
+        // Show success screen and scroll to it
+        if (successScreen) {
+          successScreen.style.display = 'block';
+          
+          // GSAP checkmark entrance animation
+          if (typeof gsap !== 'undefined') {
+            gsap.from('#booking-success-screen', {
+              opacity: 0,
+              y: 30,
+              scale: 0.98,
+              duration: 0.6,
+              ease: 'power3.out'
+            });
+          }
+          
+          successScreen.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    });
+  </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+Tawk_API.onChatMinimized = function() {
+  if (Tawk_API.showWidget) Tawk_API.showWidget();
+};
+Tawk_API.onChatHidden = function() {
+  if (Tawk_API.showWidget) Tawk_API.showWidget();
+};
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a4570db6c81d51d4c9a5825/1jsfk1n8o';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
